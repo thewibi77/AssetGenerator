@@ -1,0 +1,266 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LangGen.gd" type="Script" id=1]
+[ext_resource path="res://ModeButton.gd" type="Script" id=2]
+
+[node name="LangGen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBlockNameLab" type="Label" parent="."]
+anchor_left = 0.009
+anchor_top = 0.016
+anchor_right = 0.144
+anchor_bottom = 0.071
+margin_left = -0.135581
+margin_top = -0.0240002
+margin_right = -0.181007
+margin_bottom = -0.0440025
+text = "item/block 
+unlocalized name:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBlockName" type="LineEdit" parent="."]
+anchor_left = 0.009
+anchor_top = 0.067
+anchor_right = 0.464
+anchor_bottom = 0.11
+margin_left = 0.197
+margin_top = 0.211998
+margin_right = -0.288025
+margin_bottom = -0.0400047
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBlockLocNameLab" type="Label" parent="."]
+anchor_left = 0.519
+anchor_top = 0.016
+anchor_right = 0.636
+anchor_bottom = 0.071
+margin_left = 0.026947
+margin_top = -0.0240002
+margin_right = -0.412048
+margin_bottom = -0.0440025
+text = "item/block 
+localized name:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemBlockLocName" type="LineEdit" parent="."]
+anchor_left = 0.519
+anchor_top = 0.067
+anchor_right = 0.984
+anchor_bottom = 0.11
+margin_left = 0.026947
+margin_top = 0.211998
+margin_right = -0.128052
+margin_bottom = -0.0400047
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultLine" type="LineEdit" parent="."]
+anchor_left = 0.221
+anchor_top = 0.195
+anchor_right = 0.775
+anchor_bottom = 0.238
+margin_left = 0.39299
+margin_top = 0.0199966
+margin_right = 0.0749512
+margin_bottom = -0.23201
+editable = false
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Result" type="TextEdit" parent="."]
+anchor_left = 0.016
+anchor_top = 0.301
+anchor_right = 0.985
+anchor_bottom = 0.934
+margin_left = 0.127999
+margin_top = 0.235977
+margin_right = 0.00494385
+margin_bottom = 0.223999
+text = "{
+}"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Generate" type="Button" parent="."]
+anchor_left = 0.436
+anchor_top = 0.128
+anchor_right = 0.567
+anchor_bottom = 0.195
+margin_left = -0.0120544
+margin_top = 5.80799
+margin_right = 0.41098
+margin_bottom = -5.98001
+text = "Generate"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AddLine" type="Button" parent="."]
+anchor_left = 0.436
+anchor_top = 0.237
+anchor_right = 0.568
+anchor_bottom = 0.301
+margin_left = 0.292938
+margin_top = 5.33199
+margin_right = -0.151031
+margin_bottom = -4.76402
+text = "Add Line"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Undo" type="Button" parent="."]
+anchor_left = 0.021
+anchor_top = 0.246
+anchor_right = 0.074
+anchor_bottom = 0.293
+margin_left = -0.207001
+margin_top = 0.255997
+margin_right = -0.157997
+margin_bottom = -0.252014
+text = "Undo"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Redo" type="Button" parent="."]
+anchor_left = 0.085
+anchor_top = 0.246
+anchor_right = 0.138
+anchor_bottom = 0.293
+margin_left = 0.305
+margin_top = 0.255997
+margin_right = 0.353989
+margin_bottom = -0.252014
+text = "Redo"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClearText" type="Button" parent="."]
+anchor_left = 0.853
+anchor_top = 0.245
+anchor_right = 0.984
+anchor_bottom = 0.291
+margin_left = -0.246033
+margin_top = -0.180008
+margin_right = 0.176941
+margin_bottom = -0.124008
+text = "CLEAR"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadExist" type="Button" parent="."]
+anchor_left = 0.011
+anchor_top = 0.135
+anchor_right = 0.168
+anchor_bottom = 0.181
+margin_left = -0.537
+margin_top = -0.139999
+margin_right = 0.343994
+margin_bottom = -0.0839996
+text = "(Re)Load If Existing"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copy" type="Button" parent="."]
+anchor_left = 0.354
+anchor_top = 0.954
+anchor_right = 0.485
+anchor_bottom = 1.0
+margin_left = -0.197998
+margin_top = -0.0560303
+margin_right = 0.224976
+text = "Copy"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="."]
+anchor_left = 0.501
+anchor_top = 0.954
+anchor_right = 0.633
+anchor_bottom = 1.0
+margin_left = 0.352966
+margin_top = -0.0560303
+margin_right = -0.0910645
+text = "Save"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditButton" type="CheckButton" parent="."]
+anchor_left = 0.017
+anchor_top = 0.928
+anchor_right = 0.198
+anchor_bottom = 0.999
+margin_left = 0.260999
+margin_top = 0.107971
+margin_right = 0.333984
+margin_bottom = 0.0639648
+text = "Edit Mode:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ModeChoser" type="OptionButton" parent="."]
+anchor_left = 0.183862
+anchor_top = 0.014
+anchor_right = 0.461863
+anchor_bottom = 0.05
+margin_left = 0.195984
+margin_top = 0.104
+margin_right = -0.253021
+margin_bottom = -0.200001
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="Generate" to="." method="_on_Generate_pressed"]
+[connection signal="pressed" from="AddLine" to="." method="_on_AddLine_pressed"]
+[connection signal="pressed" from="Undo" to="." method="_on_Undo_pressed"]
+[connection signal="pressed" from="Redo" to="." method="_on_Redo_pressed"]
+[connection signal="pressed" from="ClearText" to="." method="_on_ClearText_pressed"]
+[connection signal="pressed" from="LoadExist" to="." method="_on_LoadExist_pressed"]
+[connection signal="pressed" from="Copy" to="." method="_on_Copy_pressed"]
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="toggled" from="EditButton" to="." method="_on_EditButton_toggled"]

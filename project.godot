@@ -9,13 +9,19 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Object",
 "class": "Generator",
 "language": "GDScript",
 "path": "res://Generator.gd"
+}, {
+"base": "Object",
+"class": "StringHelper",
+"language": "GDScript",
+"path": "res://Helpers/StringHelper.gd"
 } ]
 _global_script_class_icons={
-"Generator": ""
+"Generator": "",
+"StringHelper": ""
 }
 
 [application]
@@ -31,6 +37,7 @@ config/windows_native_icon="res://icon.ico"
 
 Global="*res://Global.gd"
 Imager="*res://Imager.gd"
+ToStringHelp="*res://ToStringHelp.gd"
 
 [gui]
 

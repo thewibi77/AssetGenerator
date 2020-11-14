@@ -1,0 +1,346 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BlockStuffGen.gd" type="Script" id=1]
+[ext_resource path="res://ModeButton.gd" type="Script" id=2]
+[ext_resource path="res://ClassIcon.png" type="Texture" id=3]
+
+[node name="BlockStuffGen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -145.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerationModeLab" type="Label" parent="."]
+anchor_left = -0.000460208
+anchor_top = 0.0126667
+anchor_right = 0.133
+anchor_bottom = 0.0376667
+margin_left = 0.399
+margin_top = -0.144001
+margin_right = -0.310997
+margin_bottom = -0.244003
+text = "Generation Mode:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BlockName" type="LineEdit" parent="."]
+anchor_left = 0.003
+anchor_top = 0.0870567
+anchor_right = 0.397
+anchor_bottom = 0.129057
+margin_left = 0.399
+margin_top = -0.1
+margin_right = -0.199005
+margin_bottom = 0.211998
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BlockNameLab" type="Label" parent="."]
+anchor_left = 0.00890551
+anchor_top = 0.0955445
+anchor_right = 0.250706
+anchor_bottom = 0.120544
+margin_left = -0.0480003
+margin_top = 0.112919
+margin_right = -0.689011
+margin_bottom = 0.0129166
+custom_colors/font_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+text = "Block Name"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GenerateBlockModel" type="Button" parent="."]
+anchor_left = 0.084
+anchor_top = 0.144
+anchor_right = 0.261
+anchor_bottom = 0.19
+margin_left = -0.411705
+margin_top = -0.216003
+margin_right = 0.128998
+margin_bottom = -0.160004
+text = "Generate Block Model"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultBlockModel" type="TextEdit" parent="."]
+anchor_left = 0.007
+anchor_top = 0.197
+anchor_right = 0.328
+anchor_bottom = 0.8
+margin_left = -0.0690002
+margin_top = -0.108009
+margin_right = -0.376007
+margin_bottom = -0.200012
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CopyBlockModel" type="Button" parent="."]
+anchor_left = 0.093
+anchor_top = 0.807
+anchor_right = 0.225
+anchor_bottom = 0.853
+margin_left = 0.144997
+margin_top = -0.14801
+margin_right = -0.299011
+margin_bottom = -0.0920105
+text = "Copy"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBlockModel" type="Button" parent="."]
+anchor_left = 0.093
+anchor_top = 0.865
+anchor_right = 0.225
+anchor_bottom = 0.911
+margin_left = 0.368996
+margin_top = 0.139954
+margin_right = -0.0750122
+margin_bottom = 0.195984
+text = "Save To File"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateItemModel" type="Button" parent="."]
+anchor_left = 0.418
+anchor_top = 0.144
+anchor_right = 0.591
+anchor_bottom = 0.19
+margin_left = -0.406006
+margin_top = -0.216003
+margin_right = -0.397034
+margin_bottom = -0.160004
+text = "Generate Item Model"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultItemModel" type="TextEdit" parent="."]
+anchor_left = 0.332
+anchor_top = 0.197
+anchor_right = 0.653
+anchor_bottom = 0.8
+margin_left = 0.155975
+margin_top = -0.108009
+margin_right = -0.151062
+margin_bottom = -0.200012
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CopyItemModel" type="Button" parent="."]
+anchor_left = 0.424
+anchor_top = 0.807
+anchor_right = 0.556
+anchor_bottom = 0.853
+margin_left = 0.167969
+margin_top = -0.14801
+margin_right = -0.276031
+margin_bottom = -0.0920105
+text = "Copy"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveItemModel" type="Button" parent="."]
+anchor_left = 0.424
+anchor_top = 0.865
+anchor_right = 0.556
+anchor_bottom = 0.911
+margin_left = 0.391968
+margin_top = 0.139954
+margin_right = -0.0520325
+margin_bottom = 0.195984
+text = "Save To File"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateBlockState" type="Button" parent="."]
+anchor_left = 0.744
+anchor_top = 0.144
+anchor_right = 0.908
+anchor_bottom = 0.19
+margin_left = 0.367981
+margin_top = -0.216003
+margin_right = 0.179993
+margin_bottom = -0.160004
+text = "Generate Blockstate"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResultBlockState" type="TextEdit" parent="."]
+anchor_left = 0.657
+anchor_top = 0.197
+anchor_right = 0.978
+anchor_bottom = 0.8
+margin_left = 0.380981
+margin_top = -0.108009
+margin_right = 0.0739746
+margin_bottom = -0.200012
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CopyBlockState" type="Button" parent="."]
+anchor_left = 0.745
+anchor_top = 0.807
+anchor_right = 0.876
+anchor_bottom = 0.853
+margin_left = -0.139038
+margin_top = -0.14801
+margin_right = 0.283936
+margin_bottom = -0.0920105
+text = "Copy"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveBlockState" type="Button" parent="."]
+anchor_left = 0.745
+anchor_top = 0.865
+anchor_right = 0.877
+anchor_bottom = 0.911
+margin_left = 0.0849609
+margin_top = 0.139954
+margin_right = -0.359009
+margin_bottom = 0.195984
+text = "Save To File"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateAll" type="Button" parent="."]
+anchor_left = 0.431
+anchor_top = 0.018
+anchor_right = 0.582
+anchor_bottom = 0.085
+margin_left = 0.322968
+margin_top = -0.152
+margin_right = 0.405975
+margin_bottom = 0.0600014
+text = "Generate All"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveAll" type="Button" parent="."]
+anchor_left = 0.413
+anchor_top = 0.934
+anchor_right = 0.564
+anchor_bottom = 1.001
+margin_left = -0.0710144
+margin_top = -0.276001
+margin_right = 0.0119934
+margin_bottom = -0.0640259
+text = "Save All"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveTexture" type="Button" parent="."]
+anchor_left = 0.721
+anchor_top = -0.008
+anchor_right = 1.0
+anchor_bottom = 0.074
+margin_left = -0.106995
+margin_top = 0.0120001
+margin_right = 2.0
+margin_bottom = -0.236
+text = "Generate And Save Empty Texture(s)"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ModeChooser" type="OptionButton" parent="."]
+anchor_left = 0.137777
+anchor_top = 0.00743971
+anchor_right = 0.396588
+anchor_bottom = 0.0421206
+margin_left = 0.0189972
+margin_top = -0.195999
+margin_right = 0.0669861
+margin_bottom = 0.243996
+clip_text = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+type = 2
+
+[node name="EditButton" type="CheckButton" parent="."]
+anchor_left = 0.017
+anchor_top = 0.928
+anchor_right = 0.198
+anchor_bottom = 0.999
+margin_left = 0.260999
+margin_top = 0.107971
+margin_right = 0.333984
+margin_bottom = 0.0639648
+text = "Edit Mode:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClassGenButton" type="Button" parent="."]
+anchor_left = 0.901358
+anchor_top = 0.859454
+anchor_right = 0.975143
+anchor_bottom = 0.973454
+margin_left = 0.311951
+margin_top = 0.267975
+margin_right = -0.250122
+margin_bottom = -0.0280151
+icon = ExtResource( 3 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="text_changed" from="BlockName" to="." method="_on_BlockName_text_changed"]
+[connection signal="pressed" from="GenerateBlockModel" to="." method="_on_GenerateBlockModel_pressed"]
+[connection signal="pressed" from="CopyBlockModel" to="." method="_on_CopyBlockModel_pressed"]
+[connection signal="pressed" from="SaveBlockModel" to="." method="_on_SaveBlockModel_pressed"]
+[connection signal="pressed" from="GenerateItemModel" to="." method="_on_GenerateItemModel_pressed"]
+[connection signal="pressed" from="CopyItemModel" to="." method="_on_CopyItemModel_pressed"]
+[connection signal="pressed" from="SaveItemModel" to="." method="_on_SaveItemModel_pressed"]
+[connection signal="pressed" from="GenerateBlockState" to="." method="_on_GenerateBlockState_pressed"]
+[connection signal="pressed" from="CopyBlockState" to="." method="_on_CopyBlockState_pressed"]
+[connection signal="pressed" from="SaveBlockState" to="." method="_on_SaveBlockState_pressed"]
+[connection signal="pressed" from="GenerateAll" to="." method="_on_GenerateAll_pressed"]
+[connection signal="pressed" from="SaveAll" to="." method="_on_SaveAll_pressed"]
+[connection signal="pressed" from="SaveTexture" to="." method="_on_SaveTexture_pressed"]
+[connection signal="toggled" from="EditButton" to="." method="_on_EditButton_toggled"]
+[connection signal="pressed" from="ClassGenButton" to="." method="_on_ClassGenButton_pressed"]

@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ItemModelGen.gd" type="Script" id=1]
+[ext_resource path="res://Buttons/EditButton.tscn" type="PackedScene" id=2]
+
+[node name="ItemModelGen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemNameLab" type="Label" parent="."]
+anchor_left = 0.022
+anchor_top = 0.025
+anchor_right = 0.144
+anchor_bottom = 0.05
+margin_left = -0.0740013
+margin_top = -0.1
+margin_right = 0.151993
+margin_bottom = -0.200001
+text = "Item Name:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="LineEdit" parent="."]
+anchor_left = 0.022
+anchor_top = 0.053
+anchor_right = 0.415
+anchor_bottom = 0.096
+margin_left = -0.0740013
+margin_top = 0.107998
+margin_right = 0.194977
+margin_bottom = -0.144001
+caret_blink = true
+caret_blink_speed = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Result" type="TextEdit" parent="."]
+anchor_left = 0.016
+anchor_top = 0.163
+anchor_right = 0.984
+anchor_bottom = 0.92
+margin_left = 0.127999
+margin_top = 0.0680008
+margin_right = -0.128052
+margin_bottom = 0.119995
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Generate" type="Button" parent="."]
+anchor_left = 0.441
+anchor_top = 0.103
+anchor_right = 0.573
+anchor_bottom = 0.149
+margin_left = 0.328979
+margin_top = -0.0920029
+margin_right = -0.115021
+margin_bottom = -0.0360031
+text = "Generate"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copy" type="Button" parent="."]
+anchor_left = 0.318
+anchor_top = 0.94
+anchor_right = 0.45
+anchor_bottom = 0.986
+margin_left = 0.0699768
+margin_top = -0.160034
+margin_right = -0.374023
+margin_bottom = -0.104004
+text = "Copy"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveToFile" type="Button" parent="."]
+anchor_left = 0.54
+anchor_top = 0.94
+anchor_right = 0.672
+anchor_bottom = 0.986
+margin_left = 0.350983
+margin_top = -0.160034
+margin_right = -0.0930176
+margin_bottom = -0.104004
+text = "Save To File"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SaveTexture" type="Button" parent="."]
+anchor_left = 0.732
+anchor_right = 0.997
+anchor_bottom = 0.082
+margin_left = 0.355957
+margin_top = 0.5
+margin_right = -0.399048
+margin_bottom = 0.251999
+text = "Generate And Save Empty Texture"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EditButton" parent="." instance=ExtResource( 2 )]
+[connection signal="pressed" from="Generate" to="." method="_on_Generate_pressed"]
+[connection signal="pressed" from="Copy" to="." method="_on_Copy_pressed"]
+[connection signal="pressed" from="SaveToFile" to="." method="_on_SaveToFile_pressed"]
+[connection signal="pressed" from="SaveTexture" to="." method="_on_SaveTexture_pressed"]

@@ -1,10 +1,13 @@
 extends Control
 
+signal ClassGenButtonPressed
+
 onready var BlockName = $BlockName
 onready var ResultBlockModel = $ResultBlockModel
 onready var ResultItemModel = $ResultItemModel
 onready var ResultBlockState = $ResultBlockState
 onready var ModeChooser = $ModeChooser
+onready var BlockNameLab = $BlockNameLab
 
 var generated_block_for_block: String
 var generated_block_for_item: String
@@ -32,7 +35,7 @@ func _on_GenerateItemModel_pressed():
 		willreturn = true
 	if willreturn : return
 	
-	ResultItemModel.text = Generator.gen_itemblock_model(BlockName.text,ModeChooser.selected)
+	ResultItemModel.text = Generator.gen_itemblock_model(BlockName.text)
 	generated_block_for_item = BlockName.text
 
 
@@ -154,3 +157,14 @@ func _on_EditButton_toggled(button_pressed):
 	ResultBlockModel.readonly = !button_pressed
 	ResultItemModel.readonly = !button_pressed
 	ResultBlockState.readonly = !button_pressed
+
+
+func _on_ClassGenButton_pressed():
+	Global.open_class_gen(BlockName.text,Global.CLASSGENMODE.BLOCK, ModeChooser.selected)
+
+
+func _on_BlockName_text_changed(new_text):
+	if new_text == "":
+		BlockNameLab.text = "Block Name"
+	else:
+		BlockNameLab.text = ""

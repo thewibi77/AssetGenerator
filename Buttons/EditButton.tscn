@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="EditButton" type="CheckButton"]
+anchor_left = 0.017
+anchor_top = 0.928
+anchor_right = 0.198
+anchor_bottom = 0.999
+margin_left = 0.260999
+margin_top = 0.107971
+margin_right = 0.333984
+margin_bottom = 0.0639648
+text = "Edit Mode:"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

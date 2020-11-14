@@ -3,11 +3,10 @@ extends Control
 onready var ItemBlockName = $ItemBlockName
 onready var ItemBlockLocName = $ItemBlockLocName
 onready var Result = $Result
-onready var ItemCheck = $ItemCheck
-onready var BlockCheck = $BlockCheck
 onready var ResultLine = $ResultLine
 onready var UndoButton = $Undo
 onready var RedoButton = $Redo
+onready var ModeChooser = $ModeChoser
 var undo_text_array : Array = []
 var redo_text_array : Array = []
 
@@ -32,10 +31,7 @@ func _on_Generate_pressed():
 		willreturn = true
 	if willreturn: return
 	
-	if mode == MODE.ITEM:
-		ResultLine.text = "\"item."+Global.MOD_ID+"."+ItemBlockName.text+"\": \""+ItemBlockLocName.text+"\""
-	elif mode == MODE.BLOCK:
-		ResultLine.text = "\"block."+Global.MOD_ID+"."+ItemBlockName.text+"\": \""+ItemBlockLocName.text+"\""
+	ResultLine.text = Generator.gen_lang_line(ItemBlockName.text,ItemBlockLocName.text,ModeChooser.selected)
 	
 
 
@@ -44,22 +40,6 @@ func _on_Copy_pressed():
 		Global.handle_error("lang file is empty")
 		return
 	OS.set_clipboard(Result.text)
-
-
-func _on_BlockCheck_toggled(button_pressed):
-	ItemCheck.pressed = !button_pressed
-	if button_pressed : 
-		mode = MODE.BLOCK
-	else :
-		mode = MODE.ITEM
-
-
-func _on_ItemCheck_toggled(button_pressed):
-	BlockCheck.pressed = !button_pressed
-	if button_pressed : 
-		mode = MODE.ITEM
-	else :
-		mode = MODE.BLOCK
 
 
 func _on_Save_pressed():

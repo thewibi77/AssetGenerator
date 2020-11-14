@@ -1,12 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://ItemModelGen.gd" type="Script" id=1]
+[ext_resource path="res://Tabs/LangGen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://LangGen.gd" type="Script" id=3]
-[ext_resource path="res://BlockStuffGen.gd" type="Script" id=4]
-[ext_resource path="res://BlockGenModes.gd" type="Script" id=5]
+[ext_resource path="res://Tabs/ItemModelGen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tabs/BlockStuffGen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ClassTemplateMaker.gd" type="Script" id=5]
 [ext_resource path="res://Errors.gd" type="Script" id=6]
 [ext_resource path="res://DroidSans.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Buttons/EditButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Tabs/Directory.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ModeButton.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 13
@@ -14,6 +17,9 @@ extra_spacing_top = -5
 extra_spacing_bottom = -5
 extra_spacing_space = 1
 font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.239216, 0.227451, 0.270588, 1 )
 
 [node name="Main" type="Panel"]
 anchor_right = 1.0
@@ -26,7 +32,7 @@ __meta__ = {
 
 [node name="ModIdLab" type="Label" parent="."]
 anchor_left = 0.004
-anchor_top = 0.038
+anchor_top = 0.0346667
 anchor_right = 0.137242
 anchor_bottom = 0.038
 margin_left = -0.0960002
@@ -34,6 +40,7 @@ margin_top = -13.8
 margin_right = 0.463997
 margin_bottom = 0.199999
 text = "MOD_ID:"
+valign = 2
 clip_text = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -149,767 +156,244 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Directory" type="Control" parent="TabContainer"]
+[node name="Directory" parent="TabContainer" instance=ExtResource( 9 )]
+
+[node name="ItemModelGen" parent="TabContainer" instance=ExtResource( 3 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
 
-[node name="CurrentDirLab" type="Label" parent="TabContainer/Directory"]
-anchor_left = 0.02
-anchor_top = 0.0257163
-anchor_right = 0.156
-anchor_bottom = 0.0257163
-margin_left = -0.293982
-margin_top = -13.7524
-margin_right = -0.205978
-margin_bottom = 0.24757
-text = "Current Directory :"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="CurrentDir" type="TextEdit" parent="TabContainer/Directory"]
-anchor_left = 0.018
-anchor_top = 0.0287163
-anchor_right = 0.985
-anchor_bottom = 0.0837163
-margin_left = 0.393999
-margin_top = -0.195999
-margin_right = 0.00494385
-margin_bottom = -0.216003
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SelectWorkingDir" type="Button" parent="TabContainer/Directory"]
-anchor_left = 0.018
-anchor_top = 0.0993192
-anchor_right = 0.159227
-anchor_bottom = 0.150447
-margin_left = 0.393999
-margin_top = -0.0160103
-margin_right = -0.0500031
-margin_bottom = 0.148003
-text = "Select Directory"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemModelGen" type="Control" parent="TabContainer"]
+[node name="LangGen" parent="TabContainer" instance=ExtResource( 1 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ItemNameLab" type="Label" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.022
-anchor_top = 0.025
-anchor_right = 0.144
-anchor_bottom = 0.05
-margin_left = -0.0740013
-margin_top = -0.1
-margin_right = 0.151993
-margin_bottom = -0.200001
-text = "Item Name:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemName" type="LineEdit" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.022
-anchor_top = 0.053
-anchor_right = 0.415
-anchor_bottom = 0.096
-margin_left = -0.0740013
-margin_top = 0.107998
-margin_right = 0.194977
-margin_bottom = -0.144001
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Result" type="TextEdit" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.016
-anchor_top = 0.163
-anchor_right = 0.984
-anchor_bottom = 0.92
-margin_left = 0.127999
-margin_top = 0.0680008
-margin_right = -0.128052
-margin_bottom = 0.119995
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Generate" type="Button" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.441
-anchor_top = 0.103
-anchor_right = 0.573
-anchor_bottom = 0.149
-margin_left = 0.328979
-margin_top = -0.0920029
-margin_right = -0.115021
-margin_bottom = -0.0360031
-text = "Generate"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Copy" type="Button" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.318
-anchor_top = 0.94
-anchor_right = 0.45
-anchor_bottom = 0.986
-margin_left = 0.0699768
-margin_top = -0.160034
-margin_right = -0.374023
-margin_bottom = -0.104004
-text = "Copy"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveToFile" type="Button" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.54
-anchor_top = 0.94
-anchor_right = 0.672
-anchor_bottom = 0.986
-margin_left = 0.350983
-margin_top = -0.160034
-margin_right = -0.0930176
-margin_bottom = -0.104004
-text = "Save To File"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveTexture" type="Button" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.732
-anchor_right = 0.997
-anchor_bottom = 0.082
-margin_left = 0.355957
-margin_top = 0.5
-margin_right = -0.399048
-margin_bottom = 0.251999
-text = "Generate And Save Empty Texture"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EditButton" type="CheckButton" parent="TabContainer/ItemModelGen"]
-anchor_left = 0.017
-anchor_top = 0.928
-anchor_right = 0.198
-anchor_bottom = 0.999
-margin_left = 0.260999
-margin_top = 0.107971
-margin_right = 0.333984
-margin_bottom = 0.0639648
-text = "Edit Mode:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LangGen" type="Control" parent="TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemBlockNameLab" type="Label" parent="TabContainer/LangGen"]
-anchor_left = 0.009
-anchor_top = 0.016
-anchor_right = 0.144
-anchor_bottom = 0.071
-margin_left = -0.135581
-margin_top = -0.0240002
-margin_right = -0.181007
-margin_bottom = -0.0440025
-text = "item/block 
-unlocalized name:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemBlockName" type="LineEdit" parent="TabContainer/LangGen"]
-anchor_left = 0.009
-anchor_top = 0.067
-anchor_right = 0.464
-anchor_bottom = 0.11
-margin_left = 0.197
-margin_top = 0.211998
-margin_right = -0.288025
-margin_bottom = -0.0400047
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemBlockLocNameLab" type="Label" parent="TabContainer/LangGen"]
-anchor_left = 0.519
-anchor_top = 0.016
-anchor_right = 0.636
-anchor_bottom = 0.071
-margin_left = 0.026947
-margin_top = -0.0240002
-margin_right = -0.412048
-margin_bottom = -0.0440025
-text = "item/block 
-localized name:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemBlockLocName" type="LineEdit" parent="TabContainer/LangGen"]
-anchor_left = 0.519
-anchor_top = 0.067
-anchor_right = 0.984
-anchor_bottom = 0.11
-margin_left = 0.026947
-margin_top = 0.211998
-margin_right = -0.128052
-margin_bottom = -0.0400047
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResultLine" type="LineEdit" parent="TabContainer/LangGen"]
-anchor_left = 0.221
-anchor_top = 0.195
-anchor_right = 0.775
-anchor_bottom = 0.238
-margin_left = 0.39299
-margin_top = 0.0199966
-margin_right = 0.0749512
-margin_bottom = -0.23201
-editable = false
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Result" type="TextEdit" parent="TabContainer/LangGen"]
-anchor_left = 0.016
-anchor_top = 0.301
-anchor_right = 0.985
-anchor_bottom = 0.934
-margin_left = 0.127999
-margin_top = 0.235977
-margin_right = 0.00494385
-margin_bottom = 0.223999
-text = "{
-}"
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Generate" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.436
-anchor_top = 0.128
-anchor_right = 0.567
-anchor_bottom = 0.195
-margin_left = -0.0120544
-margin_top = 5.80799
-margin_right = 0.41098
-margin_bottom = -5.98001
-text = "Generate"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AddLine" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.436
-anchor_top = 0.237
-anchor_right = 0.568
-anchor_bottom = 0.301
-margin_left = 0.292938
-margin_top = 5.33199
-margin_right = -0.151031
-margin_bottom = -4.76402
-text = "Add Line"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Undo" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.021
-anchor_top = 0.246
-anchor_right = 0.074
-anchor_bottom = 0.293
-margin_left = -0.207001
-margin_top = 0.255997
-margin_right = -0.157997
-margin_bottom = -0.252014
-text = "Undo"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Redo" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.085
-anchor_top = 0.246
-anchor_right = 0.138
-anchor_bottom = 0.293
-margin_left = 0.305
-margin_top = 0.255997
-margin_right = 0.353989
-margin_bottom = -0.252014
-text = "Redo"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ClearText" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.853
-anchor_top = 0.245
-anchor_right = 0.984
-anchor_bottom = 0.291
-margin_left = -0.246033
-margin_top = -0.180008
-margin_right = 0.176941
-margin_bottom = -0.124008
-text = "CLEAR"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LoadExist" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.011
-anchor_top = 0.135
-anchor_right = 0.163
-anchor_bottom = 0.181
-margin_left = -0.231521
-margin_top = -0.139999
-margin_right = -0.0160065
-margin_bottom = -0.0840073
-text = "(Re)Load If Existing"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Copy" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.354
-anchor_top = 0.954
-anchor_right = 0.485
-anchor_bottom = 1.0
-margin_left = -0.197998
-margin_top = -0.0560303
-margin_right = 0.224976
-text = "Copy"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Save" type="Button" parent="TabContainer/LangGen"]
-anchor_left = 0.501
-anchor_top = 0.954
-anchor_right = 0.633
-anchor_bottom = 1.0
-margin_left = 0.352966
-margin_top = -0.0560303
-margin_right = -0.0910645
-text = "Save"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemCheck" type="CheckBox" parent="TabContainer/LangGen"]
-anchor_left = 0.21
-anchor_top = 0.018
-anchor_right = 0.278
-anchor_bottom = 0.06
-margin_left = -0.0700073
-margin_top = -0.152
-margin_right = -0.0260162
-margin_bottom = 0.16
-pressed = true
-text = "Item"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlockCheck" type="CheckBox" parent="TabContainer/LangGen"]
-anchor_left = 0.289
-anchor_top = 0.018
-anchor_right = 0.362
-anchor_bottom = 0.06
-margin_left = 0.026001
-margin_top = -0.152
-margin_right = -0.265015
-margin_bottom = 0.16
-text = "Block"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EditButton" type="CheckButton" parent="TabContainer/LangGen"]
-anchor_left = 0.017
-anchor_top = 0.928
-anchor_right = 0.198
-anchor_bottom = 0.999
-margin_left = 0.260999
-margin_top = 0.107971
-margin_right = 0.333984
-margin_bottom = 0.0639648
-text = "Edit Mode:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="BlockStuffGen" type="Control" parent="TabContainer"]
+[node name="BlockStuffGen" parent="TabContainer" instance=ExtResource( 4 )]
 visible = false
+margin_right = -4.0
+
+[node name="ClassTemplateMaker" type="Control" parent="."]
+anchor_left = 0.144
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 32.0
-margin_right = -4.0
-margin_bottom = -4.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlockNameLab" type="Label" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.003
-anchor_top = -0.0108385
-anchor_right = 0.2448
-anchor_bottom = 0.0141615
-margin_left = 0.399
-margin_top = 0.112893
-margin_right = -0.242004
-margin_bottom = 0.0128918
-text = "Block Name:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="BlockNameLab2" type="Label" parent="TabContainer/BlockStuffGen"]
-anchor_left = -0.000460208
-anchor_top = 0.096
-anchor_right = 0.133
-anchor_bottom = 0.121
-margin_left = 0.399
-margin_top = -0.144001
-margin_right = -0.310997
-margin_bottom = -0.244003
-text = "Generation Mode:"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlockName" type="LineEdit" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.003
-anchor_top = 0.025
-anchor_right = 0.397
-anchor_bottom = 0.067
-margin_left = 0.399
-margin_top = -0.1
-margin_right = -0.199005
-margin_bottom = 0.211998
-caret_blink = true
-caret_blink_speed = 0.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GenerateBlockModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.084
-anchor_top = 0.144
-anchor_right = 0.261
-anchor_bottom = 0.19
-margin_left = -0.411705
-margin_top = -0.216003
-margin_right = 0.128998
-margin_bottom = -0.160004
-text = "Generate Block Model"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResultBlockModel" type="TextEdit" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.007
-anchor_top = 0.197
-anchor_right = 0.328
-anchor_bottom = 0.8
-margin_left = -0.0690002
-margin_top = -0.108009
-margin_right = -0.376007
-margin_bottom = -0.200012
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CopyBlockModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.093
-anchor_top = 0.807
-anchor_right = 0.225
-anchor_bottom = 0.853
-margin_left = 0.144997
-margin_top = -0.14801
-margin_right = -0.299011
-margin_bottom = -0.0920105
-text = "Copy"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveBlockModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.093
-anchor_top = 0.865
-anchor_right = 0.225
-anchor_bottom = 0.911
-margin_left = 0.368996
-margin_top = 0.139954
-margin_right = -0.0750122
-margin_bottom = 0.195984
-text = "Save To File"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GenerateItemModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.418
-anchor_top = 0.144
-anchor_right = 0.591
-anchor_bottom = 0.19
-margin_left = -0.406006
-margin_top = -0.216003
-margin_right = -0.397034
-margin_bottom = -0.160004
-text = "Generate Item Model"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResultItemModel" type="TextEdit" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.332
-anchor_top = 0.197
-anchor_right = 0.653
-anchor_bottom = 0.8
-margin_left = 0.155975
-margin_top = -0.108009
-margin_right = -0.151062
-margin_bottom = -0.200012
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CopyItemModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.424
-anchor_top = 0.807
-anchor_right = 0.556
-anchor_bottom = 0.853
-margin_left = 0.167969
-margin_top = -0.14801
-margin_right = -0.276031
-margin_bottom = -0.0920105
-text = "Copy"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveItemModel" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.424
-anchor_top = 0.865
-anchor_right = 0.556
-anchor_bottom = 0.911
-margin_left = 0.391968
-margin_top = 0.139954
-margin_right = -0.0520325
-margin_bottom = 0.195984
-text = "Save To File"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GenerateBlockState" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.744
-anchor_top = 0.144
-anchor_right = 0.908
-anchor_bottom = 0.19
-margin_left = 0.367981
-margin_top = -0.216003
-margin_right = 0.179993
-margin_bottom = -0.160004
-text = "Generate Blockstate"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResultBlockState" type="TextEdit" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.657
-anchor_top = 0.197
-anchor_right = 0.978
-anchor_bottom = 0.8
-margin_left = 0.380981
-margin_top = -0.108009
-margin_right = 0.0739746
-margin_bottom = -0.200012
-readonly = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CopyBlockState" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.745
-anchor_top = 0.807
-anchor_right = 0.876
-anchor_bottom = 0.853
-margin_left = -0.139038
-margin_top = -0.14801
-margin_right = 0.283936
-margin_bottom = -0.0920105
-text = "Copy"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveBlockState" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.745
-anchor_top = 0.865
-anchor_right = 0.877
-anchor_bottom = 0.911
-margin_left = 0.0849609
-margin_top = 0.139954
-margin_right = -0.359009
-margin_bottom = 0.195984
-text = "Save To File"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GenerateAll" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.431
-anchor_top = 0.018
-anchor_right = 0.582
-anchor_bottom = 0.085
-margin_left = 0.322968
-margin_top = -0.152
-margin_right = 0.405975
-margin_bottom = 0.0600014
-text = "Generate All"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveAll" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.413
-anchor_top = 0.934
-anchor_right = 0.564
-anchor_bottom = 1.001
-margin_left = -0.0710144
-margin_top = -0.276001
-margin_right = 0.0119934
-margin_bottom = -0.0640259
-text = "Save All"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveTexture" type="Button" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.721
-anchor_top = -0.008
-anchor_right = 1.0
-anchor_bottom = 0.074
-margin_left = -0.106995
-margin_top = 0.0120001
-margin_right = 2.0
-margin_bottom = -0.236
-text = "Generate And Save Empty Texture(s)"
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ModeChooser" type="OptionButton" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.143
-anchor_top = 0.089
-anchor_right = 0.399
-anchor_bottom = 0.129
-margin_left = 0.0189972
-margin_top = -0.195999
-margin_right = 0.0669861
-margin_bottom = 0.243996
-text = "Mode"
-clip_text = true
+margin_left = -0.456009
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EditButton" type="CheckButton" parent="TabContainer/BlockStuffGen"]
-anchor_left = 0.017
-anchor_top = 0.928
-anchor_right = 0.198
-anchor_bottom = 0.999
-margin_left = 0.260999
-margin_top = 0.107971
-margin_right = 0.333984
-margin_bottom = 0.0639648
-text = "Edit Mode:"
-clip_text = true
+[node name="Panel" type="Panel" parent="ClassTemplateMaker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="ClassResult" type="TextEdit" parent="ClassTemplateMaker"]
+anchor_left = 0.076416
+anchor_top = 0.179667
+anchor_right = 0.922485
+anchor_bottom = 0.918667
+margin_left = -0.250008
+margin_top = 0.199997
+margin_right = 0.375
+margin_bottom = -0.200012
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="EditButton" parent="ClassTemplateMaker" instance=ExtResource( 8 )]
+anchor_left = 0.0718716
+anchor_top = 0.926772
+anchor_right = 0.252872
+anchor_bottom = 0.997772
+margin_left = -0.0147324
+margin_top = 0.150757
+margin_right = 0.0582581
+margin_bottom = 0.10675
+
+[node name="SaveClassAs" type="Button" parent="ClassTemplateMaker"]
+anchor_left = 0.798393
+anchor_top = 0.935835
+anchor_right = 0.922393
+anchor_bottom = 0.978835
+margin_left = 0.25
+margin_top = -0.200012
+margin_right = 0.274048
+text = "Save In"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SaveClass" type="Button" parent="ClassTemplateMaker"]
+anchor_left = 0.629534
+anchor_top = 0.934405
+anchor_right = 0.753534
+anchor_bottom = 0.977405
+margin_left = 0.25
+margin_top = -0.200012
+margin_right = 0.274048
+text = "Save"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GenerateClass" type="Button" parent="ClassTemplateMaker"]
+anchor_left = 0.656499
+anchor_top = 0.0836667
+anchor_right = 0.861717
+anchor_bottom = 0.165
+margin_left = 0.25
+margin_top = -0.200012
+margin_right = 0.274048
+text = "Generate Template Class"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ClassName" type="LineEdit" parent="ClassTemplateMaker"]
+anchor_left = 0.078
+anchor_top = 0.133667
+anchor_right = 0.203
+anchor_bottom = 0.173667
+margin_left = -0.204582
+margin_top = -0.200005
+margin_right = -0.20459
+margin_bottom = -0.200005
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ClassNameLab" type="Label" parent="ClassTemplateMaker"]
+anchor_left = 0.0773638
+anchor_top = 0.128667
+anchor_right = 0.207288
+anchor_bottom = 0.128667
+margin_left = 0.151993
+margin_top = -14.2
+margin_right = 0.207993
+margin_bottom = -0.200001
+text = "Class Name :"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="Label" parent="ClassTemplateMaker"]
+anchor_left = 0.270066
+anchor_top = 0.0403333
+anchor_right = 0.737505
+anchor_bottom = 0.0403333
+margin_left = 0.151993
+margin_top = -14.2
+margin_right = 0.207993
+margin_bottom = -0.200001
+custom_colors/font_color = Color( 0.605469, 0.605469, 0.605469, 1 )
+text = "Class Template Generator"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ObjectTypeLab" type="Label" parent="ClassTemplateMaker"]
+anchor_left = 0.211865
+anchor_top = 0.108
+anchor_right = 0.326966
+anchor_bottom = 0.108
+margin_left = 0.194641
+margin_top = -13.8
+margin_right = 0.250641
+margin_bottom = 0.199997
+grow_horizontal = 0
+text = "Object Type:"
+align = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TemplateLab" type="Label" parent="ClassTemplateMaker"]
+anchor_left = 0.211865
+anchor_top = 0.165333
+anchor_right = 0.326966
+anchor_bottom = 0.165333
+margin_left = 0.194641
+margin_top = -14.2
+margin_right = 0.250641
+margin_bottom = -0.200005
+grow_horizontal = 0
+text = "Template :"
+align = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ClassMode" type="OptionButton" parent="ClassTemplateMaker"]
+anchor_left = 0.344
+anchor_top = 0.0966667
+anchor_right = 0.588414
+anchor_bottom = 0.0966667
+margin_left = -0.256012
+margin_top = -10.0
+margin_right = 0.463989
+margin_bottom = 10.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+type = 0
+
+[node name="Template" type="OptionButton" parent="ClassTemplateMaker"]
+anchor_left = 0.344
+anchor_top = 0.153334
+anchor_right = 0.588414
+anchor_bottom = 0.153334
+margin_left = -0.256012
+margin_top = -10.0
+margin_right = 0.463989
+margin_bottom = 10.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+type = 2
+
+[node name="SaveClassDialog" type="FileDialog" parent="ClassTemplateMaker"]
+anchor_left = 0.113
+anchor_top = 0.072
+anchor_right = 0.884
+anchor_bottom = 0.975
+margin_left = 0.206757
+margin_top = 0.0610161
+margin_right = -0.297241
+margin_bottom = 0.260986
+window_title = "Open a Directory"
+mode = 2
+access = 2
+filters = PoolStringArray( "*.java ; Classe" )
+show_hidden_files = true
+current_dir = "/user/Wibi/Documents/Godot/MinecraftTextgen"
+current_path = "/user/Wibi/Documents/Godot/MinecraftTextgen/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="ClassTemplateMaker"]
+anchor_left = 0.94486
+anchor_top = 0.023
+anchor_right = 0.98186
+anchor_bottom = 0.077
+margin_left = 0.357971
+margin_top = 0.200001
+margin_right = -0.0910645
+margin_bottom = -0.200005
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": true
 }
 
 [node name="ChooseDir" type="FileDialog" parent="."]
@@ -926,36 +410,32 @@ current_path = "/"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ChooseJavaDir" type="FileDialog" parent="."]
+margin_left = 166.0
+margin_top = 136.0
+margin_right = 1013.0
+margin_bottom = 594.0
+window_title = "Open a Directory"
+mode = 2
+access = 2
+show_hidden_files = true
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SaveModId" to="." method="_on_SaveModId_pressed"]
 [connection signal="pressed" from="ClearErrors" to="." method="_on_ClearErrors_pressed"]
-[connection signal="pressed" from="TabContainer/Directory/SelectWorkingDir" to="." method="_on_SelectWorkingDir_pressed"]
-[connection signal="pressed" from="TabContainer/ItemModelGen/Generate" to="TabContainer/ItemModelGen" method="_on_Generate_pressed"]
-[connection signal="pressed" from="TabContainer/ItemModelGen/Copy" to="TabContainer/ItemModelGen" method="_on_Copy_pressed"]
-[connection signal="pressed" from="TabContainer/ItemModelGen/SaveToFile" to="TabContainer/ItemModelGen" method="_on_SaveToFile_pressed"]
-[connection signal="pressed" from="TabContainer/ItemModelGen/SaveTexture" to="TabContainer/ItemModelGen" method="_on_SaveTexture_pressed"]
-[connection signal="toggled" from="TabContainer/ItemModelGen/EditButton" to="TabContainer/ItemModelGen" method="_on_EditButton_toggled"]
-[connection signal="pressed" from="TabContainer/LangGen/Generate" to="TabContainer/LangGen" method="_on_Generate_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/AddLine" to="TabContainer/LangGen" method="_on_AddLine_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/Undo" to="TabContainer/LangGen" method="_on_Undo_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/Redo" to="TabContainer/LangGen" method="_on_Redo_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/ClearText" to="TabContainer/LangGen" method="_on_ClearText_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/LoadExist" to="TabContainer/LangGen" method="_on_LoadExist_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/Copy" to="TabContainer/LangGen" method="_on_Copy_pressed"]
-[connection signal="pressed" from="TabContainer/LangGen/Save" to="TabContainer/LangGen" method="_on_Save_pressed"]
-[connection signal="toggled" from="TabContainer/LangGen/ItemCheck" to="TabContainer/LangGen" method="_on_ItemCheck_toggled"]
-[connection signal="toggled" from="TabContainer/LangGen/BlockCheck" to="TabContainer/LangGen" method="_on_BlockCheck_toggled"]
-[connection signal="toggled" from="TabContainer/LangGen/EditButton" to="TabContainer/LangGen" method="_on_EditButton_toggled"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/GenerateBlockModel" to="TabContainer/BlockStuffGen" method="_on_GenerateBlockModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/CopyBlockModel" to="TabContainer/BlockStuffGen" method="_on_CopyBlockModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/SaveBlockModel" to="TabContainer/BlockStuffGen" method="_on_SaveBlockModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/GenerateItemModel" to="TabContainer/BlockStuffGen" method="_on_GenerateItemModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/CopyItemModel" to="TabContainer/BlockStuffGen" method="_on_CopyItemModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/SaveItemModel" to="TabContainer/BlockStuffGen" method="_on_SaveItemModel_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/GenerateBlockState" to="TabContainer/BlockStuffGen" method="_on_GenerateBlockState_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/CopyBlockState" to="TabContainer/BlockStuffGen" method="_on_CopyBlockState_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/SaveBlockState" to="TabContainer/BlockStuffGen" method="_on_SaveBlockState_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/GenerateAll" to="TabContainer/BlockStuffGen" method="_on_GenerateAll_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/SaveAll" to="TabContainer/BlockStuffGen" method="_on_SaveAll_pressed"]
-[connection signal="pressed" from="TabContainer/BlockStuffGen/SaveTexture" to="TabContainer/BlockStuffGen" method="_on_SaveTexture_pressed"]
-[connection signal="toggled" from="TabContainer/BlockStuffGen/EditButton" to="TabContainer/BlockStuffGen" method="_on_EditButton_toggled"]
+[connection signal="open_dir_button_pressed" from="TabContainer/Directory" to="." method="_on_Directory_open_dir_button_pressed"]
+[connection signal="toggled" from="ClassTemplateMaker/EditButton" to="ClassTemplateMaker" method="_on_EditButton_toggled"]
+[connection signal="pressed" from="ClassTemplateMaker/SaveClassAs" to="ClassTemplateMaker" method="_on_SaveClassAs_pressed"]
+[connection signal="pressed" from="ClassTemplateMaker/SaveClass" to="ClassTemplateMaker" method="_on_SaveClass_pressed"]
+[connection signal="pressed" from="ClassTemplateMaker/GenerateClass" to="ClassTemplateMaker" method="_on_GenerateClass_pressed"]
+[connection signal="text_changed" from="ClassTemplateMaker/ClassName" to="ClassTemplateMaker" method="_on_ClassName_text_changed"]
+[connection signal="item_selected" from="ClassTemplateMaker/ClassMode" to="ClassTemplateMaker" method="_on_ClassMode_item_selected"]
+[connection signal="item_selected" from="ClassTemplateMaker/Template" to="ClassTemplateMaker" method="_on_Template_item_selected"]
+[connection signal="dir_selected" from="ClassTemplateMaker/SaveClassDialog" to="ClassTemplateMaker" method="_on_SaveClassDialog_dir_selected"]
+[connection signal="pressed" from="ClassTemplateMaker/CloseButton" to="ClassTemplateMaker" method="_on_CloseButton_pressed"]
 [connection signal="dir_selected" from="ChooseDir" to="." method="_on_ChooseDir_dir_selected"]
+[connection signal="dir_selected" from="ChooseJavaDir" to="." method="_on_ChooseJavaDir_dir_selected"]

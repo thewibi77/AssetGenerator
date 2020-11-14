@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DirectoryTab.gd" type="Script" id=1]
+
+[node name="Directory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentDirLab" type="Label" parent="."]
+anchor_left = 0.02
+anchor_top = 0.0257163
+anchor_right = 0.189
+anchor_bottom = 0.026
+margin_left = -0.293982
+margin_top = -13.7524
+margin_right = -33.734
+margin_bottom = 0.0875626
+text = "Current General Directory :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CurrentDirInfoLab" type="RichTextLabel" parent="."]
+anchor_left = 0.191
+anchor_top = 0.121
+anchor_right = 0.981
+anchor_bottom = 0.119227
+margin_left = -0.056015
+margin_top = -17.244
+margin_right = 0.303955
+margin_bottom = -0.244003
+custom_colors/default_color = Color( 0.847059, 0.847059, 0.847059, 1 )
+text = "This is the folder where there should be a \"src\" folder in it with your mod's source inside of it"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CurrentDirInfoLab2" type="RichTextLabel" parent="."]
+anchor_left = 0.191
+anchor_top = 0.331993
+anchor_right = 0.981
+anchor_bottom = 0.331993
+margin_left = -0.056015
+margin_top = -17.244
+margin_right = 0.303955
+margin_bottom = -0.244003
+custom_colors/default_color = Color( 0.847059, 0.847059, 0.847059, 1 )
+text = "This is the folder where your main mod class is located"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CurrentDir" type="TextEdit" parent="."]
+anchor_left = 0.018
+anchor_top = 0.0287163
+anchor_right = 0.985
+anchor_bottom = 0.0837163
+margin_left = 0.393999
+margin_top = -0.195999
+margin_right = 0.00494385
+margin_bottom = -0.216003
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectWorkingDir" type="Button" parent="."]
+anchor_left = 0.018
+anchor_top = 0.0993192
+anchor_right = 0.159227
+anchor_bottom = 0.150447
+margin_left = 0.393999
+margin_top = -0.0160103
+margin_right = -0.0500031
+margin_bottom = 0.148003
+text = "Select Directory"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CurrentJavaDirLab" type="Label" parent="."]
+anchor_left = 0.02
+anchor_top = 0.238482
+anchor_right = 0.195
+anchor_bottom = 0.239
+margin_left = -0.293982
+margin_top = -13.7524
+margin_right = -39.83
+margin_bottom = -0.0444031
+text = "Current Java Mod Directory :"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CurrentJavaDir" type="TextEdit" parent="."]
+anchor_left = 0.018
+anchor_top = 0.241482
+anchor_right = 0.985
+anchor_bottom = 0.296482
+margin_left = 0.393999
+margin_top = -0.195999
+margin_right = 0.00494385
+margin_bottom = -0.216003
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectJavaDir" type="Button" parent="."]
+anchor_left = 0.018
+anchor_top = 0.312085
+anchor_right = 0.159227
+anchor_bottom = 0.363213
+margin_left = 0.393999
+margin_top = -0.0160103
+margin_right = -0.0500031
+margin_bottom = 0.148003
+text = "Select Directory"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+[connection signal="pressed" from="SelectWorkingDir" to="." method="_on_SelectWorkingDir_pressed"]
+[connection signal="pressed" from="SelectJavaDir" to="." method="_on_SelectJavaDir_pressed"]
